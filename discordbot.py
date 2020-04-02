@@ -31,7 +31,9 @@ async def search(ctx, arg):
 
 @bot.command()
 async def pin(ctx):
-    await ctx.message.pin()
+    new_text = ctx.message.content.replace("/pin ", "")
+    new_msg = await ctx.send(new_text)
+    await new_msg.pin()
 
 @bot.command()
 async def help(ctx):
@@ -52,12 +54,12 @@ async def help(ctx):
     /pin
             例; /pin -2251/150/-35  経験値トラップ
             これをメッセージの先頭につけてメッセージを送ると、
-            自動的にピン留めされる。
+            先頭の /pin を消したメッセージが新たに投稿され、
+            そのメッセージが自動的にピン留めされる。
     """
     await ctx.send(template)
 
 # @client.event
 # async def on_message(message):
 
-# bot.run(TOKEN)
 bot.run(token)
