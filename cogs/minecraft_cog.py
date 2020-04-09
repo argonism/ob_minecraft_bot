@@ -29,6 +29,11 @@ class MinecraftCog(commands.Cog):
         await new_msg.pin()
 
     @commands.command()
+    async def takowasa(self, ctx):
+        url = "https://www.google.com/search?q=%E3%82%89%E3%81%8D%E3%81%99%E3%81%9F17%E8%A9%B1&oq=%E3%82%89%E3%81%8D%E3%81%99%E3%81%9F17%E8%A9%B1&aqs=chrome..69i57.6180j0j7&sourceid=chrome&ie=UTF-8"
+        await ctx.send(url)
+
+    @commands.command()
     async def help(self, ctx):
         template = """
         おいらはマイクラで便利に使えそうなボットだぜ
