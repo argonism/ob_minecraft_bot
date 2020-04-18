@@ -1,4 +1,5 @@
 ﻿from discord.ext import commands
+import discord
 import re
 import random
 
@@ -32,6 +33,22 @@ class MinecraftCog(commands.Cog):
     async def takowasa(self, ctx):
         url = "https://www.google.com/search?q=%E3%82%89%E3%81%8D%E3%81%99%E3%81%9F17%E8%A9%B1&oq=%E3%82%89%E3%81%8D%E3%81%99%E3%81%9F17%E8%A9%B1&aqs=chrome..69i57.6180j0j7&sourceid=chrome&ie=UTF-8"
         await ctx.send(url)
+    
+    @commands.command()
+    async def unchi(self, ctx):
+        await ctx.send(":poop:")
+    
+    @commands.command()
+    async def unching(seguildlf, ctx, arg):
+        poop = '\N{PILE OF POO}'
+        async for msg in ctx.channel.history(limit=50):
+            if  msg.author.name == arg:
+                await msg.add_reaction(poop) 
+    
+    @commands.command()
+    async def inu(self, ctx):
+        await ctx.send('もしかして: /neko')
+
 
     @commands.command()
     async def help(self, ctx):
@@ -42,6 +59,7 @@ class MinecraftCog(commands.Cog):
         :::: 命令一覧 ::::
         /ping   応答確認
         /neko   にゃーん
+        /inu    ???
 
         /search (検索文字列)
                 例: /search ネザー 
@@ -54,6 +72,7 @@ class MinecraftCog(commands.Cog):
                 これをメッセージの先頭につけてメッセージを送ると、
                 先頭の /pin を消したメッセージが新たに投稿され、
                 そのメッセージが自動的にピン留めされる。
+        
         """
         await ctx.send(template)
 
